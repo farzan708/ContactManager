@@ -1,5 +1,5 @@
 import {Purple} from '../../helpers/colors'
-const SerachContact = () => {
+const SerachContact = ({query,search}) => {
   return (
     <div className="input-group mx-2 w-75" dir="ltr">
       <span
@@ -12,6 +12,8 @@ const SerachContact = () => {
       <input
         dir="rtl"
         type="text"
+        value={query.text}
+        onChange={search}
         style={{  borderColor: Purple }}
         className="form-control"
         placeholder="جستجوی مخاطب"

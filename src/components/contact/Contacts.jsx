@@ -4,19 +4,18 @@ import { CurrentLine, Orange, Pink } from "../../helpers/colors";
 import Spinner from "../Spinner";
 // import NotFound from "../../assets/no-found.gif";
 
-const Contacts = ({ contacts, loading }) => {
+const Contacts = ({ contacts, loading, confirmDelete}) => {
   return (
     <>
       <section className="container">
         <div className="grid">
           <div className="row">
             <div className="col">
-              <p className="h3">
+              <p className="h3  float-end">
                 <Link
                   to={"/contacts/add"}
-                  className="btn mx-2 mt-2"
-                  style={{ backgroundColor: Pink }}
-                >
+                  className="btn m-2"
+                  style={{ backgroundColor: Pink }}>
                   ساخت مخاطب جدید
                   <i className="fa fa-plus-circle mx-2"></i>
                 </Link>
@@ -31,7 +30,7 @@ const Contacts = ({ contacts, loading }) => {
         <section className="container">
           <div className="row">
             {contacts.length > 0 ? (
-              contacts.map((c) => <Contact key={c.id} contacts={c} />)
+              contacts.map((c) => <Contact confirmDelete={()=>{confirmDelete(c.id,c.fullname)}} key={c.id} contacts={c} />)
             ) : (
               <div
                 className="text-center py-5"
